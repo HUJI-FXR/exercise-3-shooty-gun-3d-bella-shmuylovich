@@ -20,7 +20,7 @@ public class EventManager : MonoBehaviour
 
     #region MONOBEHAVIOUR
 
-    private void Awake()
+    private void OnEnable()
     {
         if (Instance != null && Instance != this)
         {

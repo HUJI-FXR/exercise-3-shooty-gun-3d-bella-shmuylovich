@@ -47,7 +47,7 @@ public class ScoreScript : MonoBehaviour
 
     public void AddScore()
     {
-        Score += 1f + comboBonus / _comboTimer;
+        Score += 1f + (int)(comboBonus / _comboTimer);
         _comboTimer = 0f;
         highScoreScript.UpdateHighScore();
     }

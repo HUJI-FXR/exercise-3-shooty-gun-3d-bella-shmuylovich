@@ -8,6 +8,8 @@ public class AimYScript : MonoBehaviour
     #region VARIABLES
 
     [SerializeField] private float sensitivity;
+    
+    private float _xRotation = 0f;
 
     #endregion
     
@@ -24,9 +26,10 @@ public class AimYScript : MonoBehaviour
 
     private void AimY()
     {
-        var y = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-        y = Math.Clamp(y, -90f, 90f);
-        transform.rotation = Quaternion.Euler(-y, 0f, 0f);
+        var mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        _xRotation -= mouseY; 
+        _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
     }
 
     #endregion

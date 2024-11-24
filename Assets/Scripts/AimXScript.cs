@@ -8,6 +8,8 @@ public class AimXScript : MonoBehaviour
     #region VARIABLES
 
     [SerializeField] private float sensitivity;
+    
+    private float _yRotation = 0f;
 
     #endregion
     
@@ -24,8 +26,9 @@ public class AimXScript : MonoBehaviour
 
     private void AimX()
     {
-        var x = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0f, x, 0f);
+        var mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        _yRotation += mouseX;
+        transform.rotation = Quaternion.Euler(0f, _yRotation, 0f);
     }
 
     #endregion
